@@ -1,0 +1,65 @@
+import dependencies.App
+import dependencies.Dependencies
+import dependencies.InstrumentationTestDeps
+import dependencies.Java
+import dependencies.SupportDeps
+import dependencies.Versions
+
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+
+android {
+  compileSdkVersion Versions.compilesdk
+  buildToolsVersion "29.0.3"
+
+  defaultConfig {
+    applicationId App.id
+    minSdkVersion Versions.minsdk
+    targetSdkVersion Versions.targetsdk
+    versionCode App.version_code
+    versionName App.version_name
+
+    testInstrumentationRunner InstrumentationTestDeps.instrumentation_runner
+  }
+
+  buildTypes {
+    release {
+      minifyEnabled false
+      proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+    }
+  }
+
+  //dont uncomment it. It has already been defined in build.gradle.kts
+  compileOptions {
+    sourceCompatibility = Java.java_version
+    targetCompatibility = Java.java_version
+  }
+
+  kotlinOptions {
+    jvmTarget = Java.java_version
+  }
+
+}
+
+dependencies {
+
+  implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+  //kt
+  implementation Dependencies.kotlin_standard_library
+  implementation Dependencies.kotlin_reflect
+  implementation Dependencies.ktx
+
+  //Support Libs
+  implementation SupportDeps.appcompat
+  implementation SupportDeps.constraintlayout
+  implementation SupportDeps.material_design
+  implementation SupportDeps.swipe_refresh_layout
+
+  //test Libs
+  testImplementation 'junit:junit:4.12'
+  androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+  androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+
+}
