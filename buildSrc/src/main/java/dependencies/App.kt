@@ -2,8 +2,8 @@ package dependencies
 
 object App {
 
-  val id = "com.stvayush.keepitclean"  //appId
-  val version_code = 1
-  val version_name = "1.0"
+  const val id = "com.stvayush.keepitclean"  //appId
+  const val version_code = 1
+  const val version_name = "1.0"
 
 }

@@ -10,17 +10,17 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 
 android {
-  compileSdkVersion Versions.compilesdk
+  compileSdkVersion Versions.compileSdk
   buildToolsVersion "29.0.3"
 
   defaultConfig {
     applicationId App.id
-    minSdkVersion Versions.minsdk
-    targetSdkVersion Versions.targetsdk
+    minSdkVersion Versions.minSdk
+    targetSdkVersion Versions.targetSdk
     versionCode App.version_code
     versionName App.version_name
 
-    testInstrumentationRunner InstrumentationTestDeps.instrumentation_runner
+    testInstrumentationRunner InstrumentationTestDeps.instrumentationRunner
   }
 
   buildTypes {
@@ -47,15 +47,15 @@ dependencies {
   implementation fileTree(dir: 'libs', include: ['*.jar'])
 
   //kt
-  implementation Dependencies.kotlin_standard_library
-  implementation Dependencies.kotlin_reflect
+  implementation Dependencies.ktStandardLib
+  implementation Dependencies.ktReflect
   implementation Dependencies.ktx
 
   //Support Libs
-  implementation SupportDeps.appcompat
-  implementation SupportDeps.constraintlayout
-  implementation SupportDeps.material_design
-  implementation SupportDeps.swipe_refresh_layout
+  implementation SupportDeps.appCompat
+  implementation SupportDeps.constraintLayout
+  implementation SupportDeps.materialDesign
+  implementation SupportDeps.swipeRefreshLayout
 
   //test Libs
   testImplementation 'junit:junit:4.12'
