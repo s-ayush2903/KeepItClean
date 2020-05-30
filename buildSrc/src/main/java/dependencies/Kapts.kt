@@ -1,6 +1,6 @@
 package dependencies
 
-object kapts{
+object Kapts{
 
   const val roomCompiler = "androidx.room:room-compiler:${Versions.room}"
   const val daggerCompiler = "com.google.dagger:dagger-compiler:${Versions.dagger}"
