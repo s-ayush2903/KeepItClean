@@ -68,6 +68,11 @@ dependencies {
     implementation(deps.Dependencies.ktStandardLib)
     implementation(deps.Dependencies.ktx)
 
+    //Kotlin CoRoutines
+    implementation(deps.Dependencies.ktCoRoutines)
+    implementation(deps.Dependencies.ktCoRoutinesAndroid)
+    implementation(deps.Dependencies.ktCoRoutinesPlayServices)   //it returns coRoutines from firestore tasks
+
     //Support Libs
     implementation(deps.SupportDeps.appCompat)
     implementation(deps.SupportDeps.constraintLayout)
@@ -82,11 +87,18 @@ dependencies {
     implementation(deps.Dependencies.firebaseAnalytics)
     implementation(deps.Dependencies.firebaseAuth)
     implementation(deps.Dependencies.firebaseFirestore)
+    implementation(deps.Dependencies.firebaseCrashlytics)
 
     //Unit Test Libs
     testImplementation(deps.TestDeps.junit4)
 
-    //Instrumentation Tests Libs (these ain't working right now, will configure 'em while testing)
-    //  androidTestImplementation(deps.InstrumentationTestDeps.androidxTestExt)
-//    androidTestImplementation(deps.InstrumentationTestDeps.espressoCore)
+    //Instrumentation Tests Libs
+    androidTestImplementation(deps.InstrumentationTestDeps.androidxTestExt)
+
+    //espresso
+    implementation(deps.InstrumentationTestDeps.idlingRes)
+    androidTestImplementation(deps.InstrumentationTestDeps.espressoCore)
+    androidTestImplementation(deps.InstrumentationTestDeps.espressoContrib)
+
+
 }
