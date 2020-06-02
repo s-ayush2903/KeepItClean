@@ -1,4 +1,4 @@
-package dependencies
+package deps
 
 /**
  * Contain only deps which assist in instrumentation tests

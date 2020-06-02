@@ -1,4 +1,4 @@
-package dependencies
+package deps
 
 /**
  *  Contains only regular deps that are used in general functioning of the module
@@ -27,7 +27,6 @@ object Dependencies {
   const val firebaseFirestore = "com.google.firebase:firebase-firestore-ktx:${Versions.firebaseFirestore}"
   const val firebaseAuth = "com.google.firebase:firebase-auth:${Versions.firebaseAuth}"
   const val firebaseAnalytics = "com.google.firebase:firebase-analytics-ktx:${Versions.firebaseAnalytics}"
-  const val firebaseCrashlytics = "com.google.firebase:firebase-crashlytics:${Versions.firebaseCrashlytics}"
   const val lifecycleRuntime = "androidx.lifecycle:lifecycle-runtime:${Versions.lifecycleVersion}"
   const val lifecycleCoRoutines = "androidx.lifecycle:lifecycle-livedata-ktx:${Versions.lifecycleVersion}"
   const val retrofit = "com.squareup.retrofit2:retrofit:${Versions.retrofit2Version}"

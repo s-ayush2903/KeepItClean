@@ -1,4 +1,4 @@
-package dependencies
+package deps
 
 /** Few basic ui based deps  **/
 object SupportDeps {
