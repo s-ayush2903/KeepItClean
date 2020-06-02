@@ -1,7 +1,7 @@
 package deps
 
 /**
- * Contain only deps which assist in instrumentation tests
+ * Contain deps which assist in instrumentation tests only
  * */
 
 object InstrumentationTestDeps{
