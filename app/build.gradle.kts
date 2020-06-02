@@ -74,6 +74,15 @@ dependencies {
     implementation(deps.SupportDeps.materialDesign)
     implementation(deps.SupportDeps.swipeRefreshLayout)
 
+    //Dagger
+    implementation(deps.Dependencies.dagger)
+    kapt(deps.kapts.daggerCompiler)
+
+    //Firebase
+    implementation(deps.Dependencies.firebaseAnalytics)
+    implementation(deps.Dependencies.firebaseAuth)
+    implementation(deps.Dependencies.firebaseFirestore)
+
     //Unit Test Libs
     testImplementation(deps.TestDeps.junit4)
 
