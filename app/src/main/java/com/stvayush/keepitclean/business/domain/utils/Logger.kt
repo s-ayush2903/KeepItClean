@@ -5,6 +5,7 @@ import com.google.firebase.crashlytics.FirebaseCrashlytics
 import com.stvayush.keepitclean.business.domain.utils.Constants.DEBUG
 import com.stvayush.keepitclean.business.domain.utils.Constants.TAG
 
+/** A custom logging class */
 
 var isUnitTest = false
 

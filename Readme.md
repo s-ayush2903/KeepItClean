@@ -1,4 +1,4 @@
-#Info regarding the branch
+### Info regarding the branch(deepenCore)
 
 * This branch is all about deepening the core module functionality
 * Means in the commits made in this branch i've added more functionalities like DataChannelManager and hence deepened the core module

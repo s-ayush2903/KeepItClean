@@ -2,11 +2,8 @@ package com.stvayush.keepitclean.business.domain.state
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.stvayush.keepitclean.business.domain.utils.EspressoIdlingResource
+import com.stvayush.keepitclean.business.domain.utils.EspressoIdlingRes
 import com.stvayush.keepitclean.business.domain.utils.printLogD
-
-
-/** A very wide utils class covering maximum ui events */
 
 /**
  * - Keeps track of active StateEvents in DataChannelManager
@@ -28,13 +25,13 @@ class StateEventManager {
 
     fun clearActiveStateEventCounter() {
         printLogD("DCM", "Clear active state events")
-        EspressoIdlingResource.clear()
+        EspressoIdlingRes.clear()
         activeStateEvents.clear()
         syncNumActiveStateEvents()
     }
 
     fun addStateEvent(stateEvent: StateEvent) {
-        EspressoIdlingResource.increment()
+        EspressoIdlingRes.increment()
         activeStateEvents.put(stateEvent.eventName(), stateEvent)
         syncNumActiveStateEvents()
     }
@@ -42,7 +39,7 @@ class StateEventManager {
     fun removeStateEvent(stateEvent: StateEvent?) {
         printLogD("DCM sem", "remove state event: ${stateEvent?.eventName()}")
         stateEvent?.let {
-            EspressoIdlingResource.decrement()
+            EspressoIdlingRes.decrement()
         }
         activeStateEvents.remove(stateEvent?.eventName())
         syncNumActiveStateEvents()

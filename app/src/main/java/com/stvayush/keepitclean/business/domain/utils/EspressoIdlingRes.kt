@@ -3,9 +3,9 @@ package com.stvayush.keepitclean.business.domain.utils
 import androidx.test.espresso.idling.CountingIdlingResource
 
 
-object EspressoIdlingResource {
+object EspressoIdlingRes {
 
-    private val CLASS_NAME = "EspressoIdlingResource"
+    private val CLASS_NAME = "EspressoIdlingRes"
 
     private const val RESOURCE = "GLOBAL"
 

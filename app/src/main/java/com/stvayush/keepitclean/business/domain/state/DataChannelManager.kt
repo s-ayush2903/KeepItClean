@@ -11,6 +11,13 @@ import kotlinx.coroutines.flow.asFlow
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 
+/** When a StateEvent is fired, it is sent to the pipeline @param[DataChannelManager]
+ *  where it is processed, afterwards swirls down and finally is displayed
+ *  which the user sees as a result on the screen
+ *  */
+
+/** So, DCM kinda processes the stateEvents and changes them into ui events */
+
 @FlowPreview
 @ExperimentalCoroutinesApi
 abstract class DataChannelManager<ViewState> {
@@ -19,7 +26,7 @@ abstract class DataChannelManager<ViewState> {
     private var channelScope: CoroutineScope? = null
     private val stateEventManager: StateEventManager = StateEventManager()
 
-    val messageStack = MessageStack()
+    val messageStack = MessageStack()  /** Observes @param[MessageStack] */
 
     val shouldDisplayProgressBar = stateEventManager.shouldDisplayProgressBar
 

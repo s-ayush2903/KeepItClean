@@ -3,6 +3,7 @@ package com.stvayush.keepitclean.business.domain.state
 import android.view.View
 import com.stvayush.keepitclean.business.domain.utils.TodoCallback
 
+/** A very wide utils class covering maximum ui common events */
 
 data class StateMessage(val response: com.stvayush.keepitclean.business.domain.state.Response)
 
