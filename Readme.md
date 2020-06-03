@@ -11,4 +11,6 @@
 * Technically speaking, that reflected change is termed as a _state change_
 * (State here has got no special meaning, it is just what it is normally)
 * The process that occurs down the architecture lane behind the scenes to cause the change reflected on the screen is handled by _stateManagement_
+
+
  
