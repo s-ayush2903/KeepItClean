@@ -3,7 +3,7 @@ package deps
 object Versions {
 
     //gradle
-    const val buildVersion = "3.6.2"  //gradle plugin version
+    const val androidGradleVersion = "4.0.0"  //androidGradle plugin version
     const val crashlyticsGradle = "2.1.0"
     const val buildToolsVersion = "29.0.3"
 
