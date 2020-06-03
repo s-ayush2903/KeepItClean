@@ -1,4 +1,4 @@
-package com.stvayush.keepitclean.framework.datasource.abstraction
+package com.stvayush.keepitclean.framework.datasource.network.abstraction
 
 import com.stvayush.keepitclean.business.domain.model.Note
 

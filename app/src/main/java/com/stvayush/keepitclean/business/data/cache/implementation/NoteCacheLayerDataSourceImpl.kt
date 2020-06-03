@@ -2,7 +2,7 @@ package com.stvayush.keepitclean.business.data.cache.implementation
 
 import com.stvayush.keepitclean.business.data.cache.abstraction.NoteCacheLayerDataSource
 import com.stvayush.keepitclean.business.domain.model.Note
-import com.stvayush.keepitclean.framework.datasource.abstraction.NoteDaoService
+import com.stvayush.keepitclean.framework.datasource.cache.abstraction.NoteDaoService
 import javax.inject.Inject
 import javax.inject.Singleton
 
