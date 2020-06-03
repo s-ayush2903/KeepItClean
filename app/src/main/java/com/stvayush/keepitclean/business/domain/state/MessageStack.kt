@@ -2,6 +2,11 @@ package com.stvayush.keepitclean.business.domain.state
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import com.stvayush.keepitclean.business.domain.state.StateResource.MessageType
+import com.stvayush.keepitclean.business.domain.state.StateResource.Response
+import com.stvayush.keepitclean.business.domain.state.StateResource.StateMessage
+import com.stvayush.keepitclean.business.domain.state.StateResource.UIComponentType
+import com.stvayush.keepitclean.business.domain.state.StateResource.UIComponentType.None
 import com.stvayush.keepitclean.business.domain.utils.printLogD
 import kotlinx.android.parcel.IgnoredOnParcel
 
@@ -62,7 +67,7 @@ class MessageStack : ArrayList<StateMessage>() {
         return StateMessage( // this does nothing
             Response(
                 message = "does nothing",
-                uiComponentType = UIComponentType.None(),
+                uiComponentType = None(),
                 messageType = MessageType.None()
             )
         )
