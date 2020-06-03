@@ -26,7 +26,9 @@ abstract class CacheResponseHandler<ViewState, Data>(
             message = "${stateEvent?.errorInfo()}\n" +
               " Reason: ${cacheResultResponse.errorMessage}",
             uiComponentType = UIComponentType.Dialog(),
-            /** If you're confused nigga, then see StateResource */
+            /** If you're confused nigga, then see StateResource
+             *  package path(com.stvayush.keepitclean.business.domain.state)
+             * */
             messageType = MessageType.Error()
           ), stateEvent = stateEvent
         )
