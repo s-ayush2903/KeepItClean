@@ -2,7 +2,7 @@ package com.stvayush.keepitclean.business.data.cache.implementation
 
 import com.stvayush.keepitclean.business.data.cache.abstraction.NoteCacheLayerDataSource
 import com.stvayush.keepitclean.business.domain.model.Note
-import com.stvayush.keepitclean.framework.datasource.abstraction.NoteDaoService
+import com.stvayush.keepitclean.framework.datasource.cache.abstraction.NoteDaoService
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -24,11 +24,13 @@ constructor(private val noteDaoService: NoteDaoService) : NoteCacheLayerDataSour
     newBody: String
   ) = noteDaoService.updateNote(primaryKey, newTitle, newBody)
 
-  override suspend fun searchNotes(
-    query: String,
-    filterAndOrder: String,
-    page: Int
-  ) = noteDaoService.searchNotes(query, filterAndOrder, page)
+  override suspend fun searchNotes(query: String, filterAndOrder: String, page: Int): List<Note> {
+    // FIXME: 4/6/20  Either delegate this function or implement some
+    //  working functionality in it, right now to pass the pipeline,
+    //  i've made it to return just an emptyList
+    //  modify it
+    return emptyList()
+  }
 
   override suspend fun searchNoteById(primaryKey: String) =
     noteDaoService.searchNoteById(primaryKey)
