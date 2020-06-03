@@ -2,7 +2,7 @@ package com.stvayush.keepitclean.business.data.network.implementation
 
 import com.stvayush.keepitclean.business.data.network.abstraction.NoteNetworkDataSource
 import com.stvayush.keepitclean.business.domain.model.Note
-import com.stvayush.keepitclean.framework.datasource.abstraction.NoteFirestoreService
+import com.stvayush.keepitclean.framework.datasource.network.abstraction.NoteFirestoreService
 import javax.inject.Inject
 import javax.inject.Singleton
 
