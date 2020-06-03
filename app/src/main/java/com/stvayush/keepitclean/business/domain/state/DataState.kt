@@ -1,5 +1,8 @@
 package com.stvayush.keepitclean.business.domain.state
 
+import com.stvayush.keepitclean.business.domain.state.StateResource.Response
+import com.stvayush.keepitclean.business.domain.state.StateResource.StateMessage
+
 /** Inspired by Resource.kt class from the googleSamples for android
  *  On receiving a response from the server, the class provides a callback
  *  that includes message, the involved stateEvent and the response(data)

@@ -5,33 +5,35 @@ import com.stvayush.keepitclean.business.domain.utils.TodoCallback
 
 /** A very wide utils class covering maximum ui common events */
 
-data class StateMessage(val response: com.stvayush.keepitclean.business.domain.state.Response)
+//remove this object qualifier if run into errors
+object StateResource {
+  data class StateMessage(val response: Response)
 
-data class Response(
+  data class Response(
     val message: String?,
     val uiComponentType: UIComponentType,
     val messageType: MessageType
-)
+  )
 
-sealed class UIComponentType {
+  sealed class UIComponentType {
 
     class Toast : UIComponentType()
 
     class Dialog : UIComponentType()
 
     class AreYouSureDialog(
-        val callback: AreYouSureCallback
+      val callback: AreYouSureCallback
     ) : UIComponentType()
 
     class SnackBar(
-        val undoCallback: SnackbarUndoCallback? = null,
-        val onDismissCallback: TodoCallback? = null
+      val undoCallback: SnackbarUndoCallback? = null,
+      val onDismissCallback: TodoCallback? = null
     ) : UIComponentType()
 
     class None : UIComponentType()
-}
+  }
 
-sealed class MessageType {
+  sealed class MessageType {
 
     class Success : MessageType()
 
@@ -40,40 +42,38 @@ sealed class MessageType {
     class Info : MessageType()
 
     class None : MessageType()
-}
+  }
 
-
-interface StateMessageCallback {
+  interface StateMessageCallback {
 
     fun removeMessageFromStack()
-}
+  }
 
-
-interface AreYouSureCallback {
+  interface AreYouSureCallback {
 
     fun proceed()
 
     fun cancel()
-}
+  }
 
-interface SnackbarUndoCallback {
+  interface SnackbarUndoCallback {
 
     fun undo()
-}
+  }
 
-class SnackbarUndoListener
-constructor(
+  class SnackbarUndoListener
+  constructor(
     private val snackbarUndoCallback: SnackbarUndoCallback?
-) : View.OnClickListener {
+  ) : View.OnClickListener {
 
     override fun onClick(v: View?) {
-        snackbarUndoCallback?.undo()
+      snackbarUndoCallback?.undo()
     }
 
-}
+  }
 
-
-interface DialogInputCaptureCallback {
+  interface DialogInputCaptureCallback {
 
     fun onTextCaptured(text: String)
+  }
 }
