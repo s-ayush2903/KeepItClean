@@ -1,4 +1,4 @@
-package com.stvayush.keepitclean.business.data.cache
+package com.stvayush.keepitclean.business.data.cache.utils
 
 /** This'll be emitted when a CacheRequest is made as
  *  @code[Success] or as @code[GenericError] which will be parsed into

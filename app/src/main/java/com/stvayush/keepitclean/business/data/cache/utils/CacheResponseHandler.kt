@@ -1,6 +1,6 @@
-package com.stvayush.keepitclean.business.data.cache
+package com.stvayush.keepitclean.business.data.cache.utils
 
-import com.stvayush.keepitclean.business.data.cache.CacheErrors.CACHE_DATA_NULL
+import com.stvayush.keepitclean.business.data.cache.utils.CacheErrors.CACHE_DATA_NULL
 import com.stvayush.keepitclean.business.domain.state.DataState
 import com.stvayush.keepitclean.business.domain.state.StateEvent
 import com.stvayush.keepitclean.business.domain.state.StateResource.MessageType

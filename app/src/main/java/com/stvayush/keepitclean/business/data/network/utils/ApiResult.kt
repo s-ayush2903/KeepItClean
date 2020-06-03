@@ -1,4 +1,4 @@
-package com.stvayush.keepitclean.business.data.network
+package com.stvayush.keepitclean.business.data.network.utils
 
 /** This @param[ApiResult] class is an equivalent to @param[CacheResult] class in cache package
  *  See that class for reference

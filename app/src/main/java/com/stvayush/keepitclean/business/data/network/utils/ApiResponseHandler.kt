@@ -1,5 +1,8 @@
-package com.stvayush.keepitclean.business.data.network
+package com.stvayush.keepitclean.business.data.network.utils
 
+import com.stvayush.keepitclean.business.data.network.utils.ApiResult.GenericError
+import com.stvayush.keepitclean.business.data.network.utils.ApiResult.NetworkError
+import com.stvayush.keepitclean.business.data.network.utils.ApiResult.Success
 import com.stvayush.keepitclean.business.domain.state.DataState
 import com.stvayush.keepitclean.business.domain.state.StateEvent
 import com.stvayush.keepitclean.business.domain.state.StateResource.MessageType
@@ -8,16 +11,16 @@ import com.stvayush.keepitclean.business.domain.state.StateResource.Response
 import com.stvayush.keepitclean.business.domain.state.StateResource.UIComponentType
 import com.stvayush.keepitclean.business.domain.state.StateResource.UIComponentType.Dialog
 
+/** Documentation same as CacheResponseHandler */
 abstract class ApiResponseHandler<ViewState, Data>(
   private val apiResultResponse: ApiResult<Data?>,
   private val stateEvent: StateEvent?
 ) {
-
   suspend fun getResult(): DataState<ViewState>? {
 
     return when (apiResultResponse) {
 
-      is ApiResult.GenericError -> {
+      is GenericError -> {
         DataState.error(
           response = Response(
             message = "${stateEvent?.errorInfo()}\n" +
@@ -31,7 +34,7 @@ abstract class ApiResponseHandler<ViewState, Data>(
         )
       }
 
-      is ApiResult.NetworkError -> {
+      is NetworkError -> {
         DataState.error(
           response = Response(
             message = "${stateEvent?.errorInfo()}\n" +
@@ -45,7 +48,7 @@ abstract class ApiResponseHandler<ViewState, Data>(
         )
       }
 
-      is ApiResult.Success -> {
+      is Success -> {
         if (apiResultResponse.value == null) {
           DataState.error(
             response = Response(

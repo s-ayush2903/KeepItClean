@@ -1,4 +1,4 @@
-package com.stvayush.keepitclean.business.data.cache
+package com.stvayush.keepitclean.business.data.cache.utils
 
 
 /** An object that contains cache error strings defined in it */

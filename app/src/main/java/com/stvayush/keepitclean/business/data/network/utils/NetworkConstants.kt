@@ -1,4 +1,4 @@
-package com.stvayush.keepitclean.business.data.network
+package com.stvayush.keepitclean.business.data.network.utils
 
 object NetworkConstants {
 

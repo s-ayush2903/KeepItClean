@@ -1,5 +1,6 @@
-package com.stvayush.keepitclean.business.data.network
+package com.stvayush.keepitclean.business.data.network.utils
 
+/** An object that contains network error strings defined in it */
 object NetworkErrors {
 
   const val UNABLE_TO_RESOLVE_HOST = "Unable to resolve host" //** Internet doesn't work */
@@ -12,7 +13,9 @@ object NetworkErrors {
 
   fun isNetworkError(msg: String): Boolean {
     return when {
-      msg.contains(UNABLE_TO_RESOLVE_HOST) -> true
+      msg.contains(
+        UNABLE_TO_RESOLVE_HOST
+      ) -> true
       else -> false
     }
   }
