@@ -5,7 +5,7 @@ import deps.Versions
 
 object BuildPlugins {
 
-    const val androidGradlePlugin = "com.android.tools.build:gradle:${Versions.buildVersion}"
+    const val androidGradlePlugin = "com.android.tools.build:gradle:${Versions.androidGradleVersion}"
     const val androidKotlinPlugin = "org.jetbrains.kotlin:kotlin-gradle-plugin:${Versions.kotlinVersion}"
 
     const val androidApplication = "com.android.application"
