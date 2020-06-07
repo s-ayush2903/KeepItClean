@@ -39,7 +39,7 @@ class InsertNewNote(
 
     /** Push the note in the cache */
     val cacheResult = noteCacheLayerDataSource.insertNote(newNote)
-    var cacheResponse: DataState<NoteListViewState>? = null
+    val cacheResponse: DataState<NoteListViewState>
 
     /** Now check if the note was successfully inserted in the cache or not and change ui accordingly */
     if (cacheResult > 0) {
@@ -69,7 +69,7 @@ class InsertNewNote(
     emit(cacheResponse)
 
     /** Now update it in firestore as well */
-    updateNetwork(cacheResponse.stateMessage.response.message,newNote)
+    updateNetwork(cacheResponse.stateMessage!!.response.message,newNote)
 
   }
 
