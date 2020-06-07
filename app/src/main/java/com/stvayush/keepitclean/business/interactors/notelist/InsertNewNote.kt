@@ -1,7 +1,9 @@
 package com.stvayush.keepitclean.business.interactors.notelist
 
 import com.stvayush.keepitclean.business.data.cache.abstraction.NoteCacheLayerDataSource
+import com.stvayush.keepitclean.business.data.cache.utils.CacheResponseHandler
 import com.stvayush.keepitclean.business.data.network.abstraction.NoteNetworkDataSource
+import com.stvayush.keepitclean.business.data.utils.SafeCalls
 import com.stvayush.keepitclean.business.domain.model.Note
 import com.stvayush.keepitclean.business.domain.model.NoteFactory
 import com.stvayush.keepitclean.business.domain.state.DataState
@@ -10,6 +12,7 @@ import com.stvayush.keepitclean.business.domain.state.StateResource.MessageType
 import com.stvayush.keepitclean.business.domain.state.StateResource.Response
 import com.stvayush.keepitclean.business.domain.state.StateResource.UIComponentType
 import com.stvayush.keepitclean.framework.presentation.notelist.state.NoteListViewState
+import kotlinx.coroutines.Dispatchers.IO
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import java.util.UUID
@@ -28,7 +31,7 @@ class InsertNewNote(
     id: String? = null,
     title: String,
     stateEvent: StateEvent
-  ): Flow<DataState<NoteListViewState>> = flow {
+  ): Flow<DataState<NoteListViewState>?> = flow {
 
     val newNote = noteFactory.createSingleNote(
       id = id ?: UUID.randomUUID()
@@ -38,44 +41,53 @@ class InsertNewNote(
     )
 
     /** Push the note in the cache */
-    val cacheResult = noteCacheLayerDataSource.insertNote(newNote)
-    val cacheResponse: DataState<NoteListViewState>
+    val cacheResult = SafeCalls.safeCacheCall(IO){
+          noteCacheLayerDataSource.insertNote(newNote)
+        }
 
-    /** Now check if the note was successfully inserted in the cache or not and change ui accordingly */
-    if (cacheResult > 0) {
-      val viewState = NoteListViewState(newNote = newNote)
+    val cacheResponse = object:CacheResponseHandler<NoteListViewState, Long>(
+      cacheResultResponse = cacheResult,
+      stateEvent = stateEvent
+    ){
+      override fun handleSuccess(resultObject: Long): DataState<NoteListViewState> {
+        return if (resultObject > 0) {
+          val viewState = NoteListViewState(newNote = newNote)
+          DataState.data(
+            response = Response(
+              message = "Successfully inserted new note in the cache",
+              uiComponentType = UIComponentType.Toast(),
+              messageType = MessageType.Success()
+            ),
+            data = viewState,
+            stateEvent = stateEvent
+          )
 
-      cacheResponse = DataState.data(
-        response = Response(
-          message = "Successfully inserted new note in the cache",
-          uiComponentType = UIComponentType.Toast(),
-          messageType = MessageType.Success()
-        ),
-        data = viewState,
-        stateEvent = stateEvent
-      )
+        } else {
+          DataState.data(
+            response = Response(
+              message = "Error inserting note in cache",
+              uiComponentType = UIComponentType.Toast(),
+              messageType = MessageType.Error()
+            ), data = null,
+            stateEvent = stateEvent
+          )
+        }
 
-    } else {
-      cacheResponse = DataState.data(
-        response = Response(
-          message = "Error inserting note in cache",
-          uiComponentType = UIComponentType.Toast(),
-          messageType = MessageType.Error()
-        ), data = null,
-        stateEvent = stateEvent
-      )
-    }
+      }
+    }.getResult()
 
     emit(cacheResponse)
 
     /** Now update it in firestore as well */
-    updateNetwork(cacheResponse.stateMessage!!.response.message,newNote)
+    updateNetwork(cacheResponse!!.stateMessage!!.response.message,newNote)
 
   }
 
   private suspend fun updateNetwork(cacheResponse:String?, newNote:Note){
     if(cacheResponse.equals("Successfully inserted new note in the cache")){
-      noteNetworkDataSource.insertOrUpdateNote(newNote)
+        SafeCalls.safeApiCall(IO){
+          noteNetworkDataSource.insertOrUpdateNote(newNote)
+        }
     }
   }
 
