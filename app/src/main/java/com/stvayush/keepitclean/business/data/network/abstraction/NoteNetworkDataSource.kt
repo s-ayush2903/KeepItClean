@@ -18,7 +18,7 @@ interface NoteNetworkDataSource {
 
     suspend fun deleteNote(primaryKey: String)
     suspend fun restoreNote(note: Note)
-    suspend fun restoreMultipleNotes(note: List<Note>)
+    suspend fun restoreMultipleNotes(notes: List<Note>)
 
     /** Pending note is the note that is
      *  kept on hold for deleting or restoring the note based on the input received from user via displayed snackBar
@@ -28,6 +28,8 @@ interface NoteNetworkDataSource {
 
     /** For obtaining the deleted notes */
     suspend fun getDeletedNotes(): List<Note>
+
+    suspend fun deleteAllNotes()
 
     /** For getting the total number of active notes(notes that ain't deleted and are present now) in the firestore */
     suspend fun getAllNotes(): List<Note>
