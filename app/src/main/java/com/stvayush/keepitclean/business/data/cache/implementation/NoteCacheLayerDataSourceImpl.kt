@@ -18,11 +18,15 @@ constructor(private val noteDaoService: NoteDaoService) : NoteCacheLayerDataSour
   override suspend fun deleteMultipleNotes(note: List<Note>) =
     noteDaoService.deleteMultipleNotes(note)
 
+  // FIXME: 8/6/20 requires modification
   override suspend fun updateNote(
     primaryKey: String,
     newTitle: String,
-    newBody: String
-  ) = noteDaoService.updateNote(primaryKey, newTitle, newBody)
+    newBody: String,
+    timestamp: String?
+  ): Int {
+    return(noteDaoService.updateNote(primaryKey, newTitle, newBody, timestamp!!))
+  }
 
   override suspend fun searchNotes(query: String, filterAndOrder: String, page: Int): List<Note> {
     // FIXME: 4/6/20  Either delegate this function or implement some
