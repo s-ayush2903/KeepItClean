@@ -4,11 +4,6 @@ import com.stvayush.keepitclean.business.data.cache.abstraction.NoteCacheLayerDa
 import com.stvayush.keepitclean.business.domain.model.Note
 import com.stvayush.keepitclean.business.domain.utils.DateUtils
 import com.stvayush.keepitclean.framework.datasource.database.NOTE_PAGINATION_PAGE_SIZE
-import simulations.errors.CachingErrors.FORCE_DELETE_NOTES_EXCEPTION
-import simulations.errors.CachingErrors.FORCE_DELETE_NOTE_EXCEPTION
-import simulations.errors.CachingErrors.FORCE_NEW_NOTE_EXCEPTION
-import simulations.errors.CachingErrors.FORCE_SEARCH_NOTE_EXCEPTION
-import simulations.errors.CachingErrors.FORCE_UPDATE_NOTE_EXCEPTION
 
 /** A SQLite simulation
  *  Cakewalk, nothin' special just normal queries
@@ -125,5 +120,17 @@ class FakeCacheDataSourceImpl constructor(
     return results
 
   }
+
+
+  companion object{
+
+    const val FORCE_DELETE_NOTE_EXCEPTION = "Forced Note Deletion Exception"
+    const val FORCE_NEW_NOTE_EXCEPTION = "Forced New Note Insertion Exception"
+    const val FORCE_DELETE_NOTES_EXCEPTION = "Forced Multiple Notes Deletion Exception"
+    const val FORCE_UPDATE_NOTE_EXCEPTION = "Forced Note Updation Exception"
+    const val FORCE_SEARCH_NOTE_EXCEPTION = "Forced Note Search Exception"
+    const val FORCE_GENERAL_FAILURE = "Forced General Failure"
+  }
+
 
 }
