@@ -116,10 +116,11 @@ class FakeCacheDataSourceImpl constructor(
 
     val results = LongArray(note.size)
 
-    for ((index, note) in note.withIndex()) {
+    note.withIndex()
+      .forEach { (index, note) ->
       results[index] = 1
-      note.id?.let { notesData.put(it, note) }
-    }
+        note.id?.let { notesData[it] = note }
+      }
 
     return results
 
