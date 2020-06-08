@@ -79,6 +79,10 @@ dependencies {
     implementation(deps.SupportDeps.materialDesign)
     implementation(deps.SupportDeps.swipeRefreshLayout)
 
+    //Retrofit
+    implementation(deps.Dependencies.retrofitGson)  //right now only this is needed (for error handling only)
+    implementation(deps.Dependencies.retrofit)
+
     //Dagger
     implementation(deps.Dependencies.dagger)
     kapt(deps.kapts.daggerCompiler)
