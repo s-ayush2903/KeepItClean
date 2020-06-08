@@ -12,3 +12,4 @@ labelMapping:
   chore(ci): [chore, tools, ci]
   chore(tools): [chore, tools]
   chore(release): [chore, release]
+  TDD: [test, tests, testing]
