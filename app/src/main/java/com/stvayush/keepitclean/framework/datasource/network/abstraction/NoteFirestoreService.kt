@@ -17,6 +17,7 @@ interface NoteFirestoreService{
      *  */
 
     suspend fun deleteNote(primaryKey: String)
+    suspend fun deleteAllNotes()
     suspend fun restoreNote(note: Note)
     suspend fun restoreMultipleNotes(note: List<Note>)
 
