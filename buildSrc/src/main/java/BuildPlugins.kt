@@ -15,5 +15,5 @@ object BuildPlugins {
 
     const val crashlyticsGradle = "com.google.firebase:firebase-crashlytics-gradle:${Versions.crashlyticsGradle}"
 
-    //  const val junit5 = "de.mannodermaus.gradle.plugins:android-junit5:1.3.2.0" will import this in a different manner!
+    const val junit5 = "de.mannodermaus.gradle.plugins:android-junit5:1.3.2.0" //will import this in a different manner!
 }
