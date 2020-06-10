@@ -20,15 +20,15 @@ constructor(
         id: String? = null,
         title: String,
         body: String? = null
-    ): Note =
-        Note(
+    ): Note {
+        return Note(
             id = id ?: UUID.randomUUID().toString(),
             title = title,
             body = body ?: "",
             created_at = dateUtils.getTimestamp(),
             last_updated = dateUtils.getTimestamp()
         )
-
+    }
 
     fun createNotesList(numNotes: Int): List<Note> {
         val list: ArrayList<Note> = ArrayList()

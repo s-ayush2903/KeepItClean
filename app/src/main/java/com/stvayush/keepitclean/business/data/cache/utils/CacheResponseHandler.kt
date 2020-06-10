@@ -53,6 +53,6 @@ abstract class CacheResponseHandler<ViewState, Data>(
     }
   }
 
-  abstract fun handleSuccess(resultObject: Data): DataState<ViewState>
+  abstract fun handleSuccess(resultObject: Data): DataState<ViewState>?
 
 }
