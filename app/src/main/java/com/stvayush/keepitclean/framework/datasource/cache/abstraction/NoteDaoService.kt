@@ -17,7 +17,8 @@ interface NoteDaoService {
     suspend fun updateNote(
         primaryKey: String,
         newTitle: String,
-        newBody: String
+        newBody: String,
+        timestamp: String
     ): Int
 
     /** Modified the search functionality */

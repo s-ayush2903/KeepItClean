@@ -17,7 +17,9 @@ constructor(private val firestoreService: NoteFirestoreService) : NoteNetworkDat
 
     override suspend fun restoreNote(note: Note) = firestoreService.restoreNote(note)
 
-    override suspend fun restoreMultipleNotes(note: List<Note>) = firestoreService.restoreMultipleNotes(note)
+    override suspend fun restoreMultipleNotes(notes: List<Note>) = firestoreService.restoreMultipleNotes(notes)
+
+    override suspend fun deleteAllNotes() = firestoreService.deleteAllNotes()
 
     override suspend fun deletePendingNote(note: Note) = firestoreService.deletePendingNote(note)
 
