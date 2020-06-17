@@ -32,8 +32,8 @@ before_script:
   - apt-get --quiet install --yes wget tar unzip lib32stdc++6 lib32z1
 
   #Setup path as android_home for moving/exporting the downloaded sdk into it
-  - export ANDROID_HOME=${PWD}android-home
-#  - install -d $ANDROID_HOME           #testing this loc
+  - export ANDROID_HOME="${PWD}/android-home"
+  - install -d $ANDROID_HOME           #testing this loc
 
   #  Here we are installing androidSDK tools from official source,
   #  (the key thing here is the url from where you are downloading these sdk tool for command line, so please do note this url pattern there and here as well)
