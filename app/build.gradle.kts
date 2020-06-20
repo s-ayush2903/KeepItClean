@@ -57,6 +57,24 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+
+//    packagingOptions {
+//        exclude ("META-INF/DEPENDENCIES")
+//    }
+    /* Fix this, its failing ./gradlew testDebug
+    testOptions {
+        unitTests.all(KotlinClosure1<Any, Test>({
+            (this as Test).also { useJUnitPlatform() }
+        }, unitTests))
+    }*/
+
+    /** useless though */
+//    testOptions {
+//        unitTests.all(KotlinClosure1<Any, Test>({
+//            (this as Test).also { jvmArgs("-noverify") }
+//        }, unitTests))
+//    }
+
 }
 
 dependencies {
@@ -79,6 +97,10 @@ dependencies {
     implementation(deps.SupportDeps.materialDesign)
     implementation(deps.SupportDeps.swipeRefreshLayout)
 
+    //Retrofit
+    implementation(deps.Dependencies.retrofitGson)  //right now only this is needed (for error handling only)
+    implementation(deps.Dependencies.retrofit)
+
     //Dagger
     implementation(deps.Dependencies.dagger)
     kapt(deps.kapts.daggerCompiler)
@@ -90,7 +112,12 @@ dependencies {
     implementation(deps.Dependencies.firebaseCrashlytics)
 
     //Unit Test Libs
+    testImplementation(BuildPlugins.junit5)  //actually, i wanna implement it new way, as i've done for ktOptions, but it threw exceptions for testDebug, so check if it could be done in future
     testImplementation(deps.TestDeps.junit4)
+    testImplementation(deps.TestDeps.mockk)
+    testImplementation(deps.TestDeps.jupiterApi)
+    testImplementation(deps.TestDeps.jupiterParams)
+    testRuntimeOnly(deps.TestDeps.jupiterEngine)
 
     //Instrumentation Tests Libs
     androidTestImplementation(deps.InstrumentationTestDeps.androidxTestExt)

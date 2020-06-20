@@ -2,7 +2,12 @@ package com.stvayush.keepitclean.business.data.cache.abstraction
 
 import com.stvayush.keepitclean.business.domain.model.Note
 
-/** An abstract class between LocalDataSource and SQLite */
+/** An Interface between LocalDataSource and SQLite
+ *  Please do note that
+ *  The only purpose of creating this class is that we'll be using this as helper class
+ *  for room simulation in testing as well because i wanna unit test room not instrumentation one
+ * */
+
 /** This contains of all the functions that'll be performed in the cache */
 
 interface NoteCacheLayerDataSource {
@@ -15,7 +20,8 @@ interface NoteCacheLayerDataSource {
   suspend fun updateNote(
     primaryKey: String,
     newTitle: String,
-    newBody: String
+    newBody: String,
+    timestamp: String?
   ): Int
 
   suspend fun searchNotes(

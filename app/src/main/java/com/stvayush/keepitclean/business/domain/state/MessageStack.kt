@@ -5,7 +5,6 @@ import androidx.lifecycle.MutableLiveData
 import com.stvayush.keepitclean.business.domain.state.StateResource.MessageType
 import com.stvayush.keepitclean.business.domain.state.StateResource.Response
 import com.stvayush.keepitclean.business.domain.state.StateResource.StateMessage
-import com.stvayush.keepitclean.business.domain.state.StateResource.UIComponentType
 import com.stvayush.keepitclean.business.domain.state.StateResource.UIComponentType.None
 import com.stvayush.keepitclean.business.domain.utils.printLogD
 import kotlinx.android.parcel.IgnoredOnParcel
@@ -17,7 +16,6 @@ import kotlinx.android.parcel.IgnoredOnParcel
  *  and hence the stack shrinks and so on
  * */
 
-const val MESSAGE_STACK_BUNDLE_KEY = "com.stvayush.keepitclean.business.domain.state.MessageStack"
 
 class MessageStack : ArrayList<StateMessage>() {
 
@@ -76,4 +74,10 @@ class MessageStack : ArrayList<StateMessage>() {
     private fun setStateMessage(stateMessage: StateMessage?) {
         _stateMessage.value = stateMessage
     }
+
+    companion object {
+        const val MESSAGE_STACK_BUNDLE_KEY =
+            "com.stvayush.keepitclean.business.domain.state.MessageStack"
+    }
+
 }

@@ -1,3 +1,5 @@
+[![pipeline status](https://gitlab.com/s-ayush2903/KeepItClean/badges/develop/pipeline.svg)](https://gitlab.com/s-ayush2903/KeepItClean/-/commits/develop)
+
 ### Info regarding the branch(deepenCore)
 
 * This branch is all about deepening the core module functionality
