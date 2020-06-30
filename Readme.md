@@ -1,5 +1,9 @@
 [![pipeline status](https://gitlab.com/s-ayush2903/KeepItClean/badges/develop/pipeline.svg)](https://gitlab.com/s-ayush2903/KeepItClean/-/commits/develop)
 
+### KeepItClean
+An awesome implementation of MVI and Clean Architecture. The current project makes use of all the latest depedencies and android tools. The project is completely written in kotlin, cherry on the ice is that the gradle files too are writtend using DSLs that make this project up to date till now.
+The project follows complete Test Driven Development. A star thing in this TDD is that the testing is performed even before the Presentation Layer(UI components) are prepared. The project is stale nowadays due to multiple engagements but will be continued soon
+
 ### Info regarding the branch(deepenCore)
 
 * This branch is all about deepening the core module functionality
