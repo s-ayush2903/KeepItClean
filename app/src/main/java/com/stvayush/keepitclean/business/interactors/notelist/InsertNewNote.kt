@@ -49,7 +49,7 @@ class InsertNewNote(
       cacheResultResponse = cacheResult,
       stateEvent = stateEvent
     ){
-      override fun handleSuccess(resultObject: Long): DataState<NoteListViewState> {
+      override fun handleSuccess(resultObject: Long): DataState<NoteListViewState>? {
         return if (resultObject > 0) {
           val viewState = NoteListViewState(newNote = newNote)
           DataState.data(
@@ -79,7 +79,7 @@ class InsertNewNote(
     emit(cacheResponse)
 
     /** Now update it in firestore as well */
-    updateNetwork(cacheResponse!!.stateMessage!!.response.message,newNote)
+    updateNetwork(cacheResponse?.stateMessage?.response?.message,newNote)
 
   }
 
