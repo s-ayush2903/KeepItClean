@@ -20,17 +20,17 @@ continued soon
 Follow these steps to deploy your app to appetize.io:-
 
 1. Get an API token from here: https://appetize.io/docs#request-api-token.
-2. Create a CI/CD variable for api token named "APPETIZE_API".  
+2. Create a CI/CD variable for api token named "APPETIZE_API".
    Follow this guide to learn how to add CI/CD variables to your gitlab
    repository:
    https://docs.gitlab.com/ee/ci/variables/#creating-a-custom-environment-variable
-3. Run the following command once to upload the app.  
-   `curl https://API_TOKEN@api.appetize.io/v1/apps -F "file=@path_of_file_to_be_uploaded.apk" -F "platform=android"`  
-   Replace API_TOKEN with the api token you got in step 1.  
+3. Run the following command once to upload the app.
+   `curl https://API_TOKEN@api.appetize.io/v1/apps -F "file=@path_of_file_to_be_uploaded.apk" -F "platform=android"`
+   Replace API_TOKEN with the api token you got in step 1.
    Replace file_to_upload.apk with your apk file.
 4. Command in step 3 will return a response. Note the public key from your
    response and add a CI/CD varible named "APPETIZE_KEY" and enter this public
-   key as value.  
+   key as value.
    Make sure to make both the varibales protected and make your branch protected
    too. Follow this guide:
    https://docs.gitlab.com/ee/user/project/protected_branches.html#configuring-protected-branches
