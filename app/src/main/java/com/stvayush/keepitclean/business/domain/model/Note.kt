@@ -23,7 +23,7 @@ import kotlinx.android.parcel.Parcelize
 @Parcelize
 data class Note(
     val id: String?,
-    val title: String?,
+    val title: String,
     val body: String?,
     val created_at: String?,
     val last_updated: String?

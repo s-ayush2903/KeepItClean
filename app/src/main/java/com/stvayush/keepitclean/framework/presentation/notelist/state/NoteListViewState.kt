@@ -28,6 +28,6 @@ data class NoteListViewState(
   @Parcelize
   data class NotePendingDelete(
     var note: Note? = null,
-    val position: Int
+    val position: Int? = null
   ) : Parcelable
 }
